@@ -1,55 +1,29 @@
-import { Link } from "@reach/router"
 import { graphql } from "gatsby"
 import React from "react"
+import Layout from "../components/layout"
+import { MdxProps } from "../queries/queries"
 
 interface DataProps {
-  mdx: {
-    body: string
-    frontmatter: {
-      title: string
-      date: string
-    }
-  }
+  mdx: MdxProps
 }
-
-export function Page({ data, children }: any) {
-  return (
-    <>
-      <ul>
-        {data.allMdx.edges.map(post => {
-          return <li><Link to={`${post.node.frontmatter.slug}`}>{post.node.frontmatter.title}</Link></li>
-        })}
-      </ul>
-      <h1>{data.mdx.frontmatter.title}</h1>
-      {children}
-    </>
-  )
-}
-
-export default Page
 
 export const query = graphql`
   query($id: String!) {
     mdx(id: { eq: $id }) {
-      id
-      body
-      frontmatter {
-        slug
-        title
-        date(formatString: "MMMM DD, YYYY")
-      }
-    }
-    allMdx(sort: {fields: frontmatter___date, order: ASC}) {
-        edges {
-            node {
-                id
-                frontmatter {
-                    date(formatString: "YYYY MM Do")
-                    title
-                    slug
-                }
-            }
-        }
+      ...PostFields
     }
   }
 `
+
+export function Page(props: { data: DataProps, children }) {
+  const { data, children } = props
+  return (
+    <Layout>
+      <h1>{data.mdx.frontmatter.title}</h1>
+      <h1>{data.mdx.frontmatter.tags.join(",")}</h1>
+      {children}
+    </Layout>
+  )
+}
+
+export default Page

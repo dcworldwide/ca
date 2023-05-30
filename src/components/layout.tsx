@@ -1,5 +1,6 @@
 import { MDXProvider } from "@mdx-js/react"
 import React from "react"
+import Navigation from "./navigation"
 
 // TODO common renders
 // const markdownRenderers = {}
@@ -22,9 +23,10 @@ const markdownRenderers = {
     ),
 }
 
-export default function Layout(props: { children: React.ReactElement }) {
+export default function Layout(props: { children }) {
     return (
         <div>
+            <Navigation />
             <MDXProvider components={markdownRenderers}>{props.children}</MDXProvider>
         </div>
     )
