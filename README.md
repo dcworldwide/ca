@@ -78,3 +78,20 @@ Create a table comparing the cost of travelling by taxi or trike in boracay. Giv
 Ad sense
 Analytics
 Discuss at end of each page?
+
+
+DNS
+
+dig www.cebuanna.com +nostats +nocomments +nocmd
+;; global options: +cmd
+;WWW.cebuanna.COM.		IN	A
+WWW.cebuanna.COM.	10800	IN	CNAME	webredir.vip.gandi.net.
+webredir.vip.gandi.net.	10800	IN	A	217.70.184.50
+danijel@Danijels-MacBook-Pro ~ % 
+
+changed cname: www webredir.vip.gandi.net. to dcworldwide.github.io.
+
+git add * && git commit -m "Fixes" && git push
+npm run deploy
+
+

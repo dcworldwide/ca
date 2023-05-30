@@ -69,6 +69,11 @@ const config: GatsbyConfig = {
             require(`remark-gfm`),
             //wrapESMPlugin(`remark-gfm`), TODO
           ],
+          rehypePlugins: [
+            // @see https://paulie.dev/posts/2022/08/mdx-esm-rehype-packages/
+            require('rehype-slug'),
+            [require('rehype-autolink-headings'), { behavior: 'wrap' }]
+          ]
         },
       }
     },

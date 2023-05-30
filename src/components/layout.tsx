@@ -6,21 +6,21 @@ import Navigation from "./navigation"
 // const markdownRenderers = {}
 
 const markdownRenderers = {
-    h1: (props: any) => (
-        <h1 style={{ color: "red", fontSize: "60px", fontWeight: "bold" }} {...props} />
-    ),
-    h2: (props: any) => (
-        <h2 style={{ color: "red", fontSize: "60px", fontWeight: "bold" }} {...props} />
-    ),
-    table: (props: any) => (
-        <table style={{ background: "pink" }} {...props} />
-    ),
-    tr: (props: any) => (
-        <tr style={{ background: "pink" }} {...props} />
-    ),
-    td: (props: any) => (
-        <td style={{ background: "pink" }} {...props} />
-    ),
+    // h1: (props: any) => (
+    //     <h1 style={{ fontSize: "60px", fontWeight: "bold" }} {...props} />
+    // ),
+    // h2: (props: any) => (
+    //     <h2 style={{ fontSize: "60px", fontWeight: "bold" }} {...props} />
+    // ),
+    // table: (props: any) => (
+    //     <table style={{ background: "pink" }} {...props} />
+    // ),
+    // tr: (props: any) => (
+    //     <tr style={{ background: "pink" }} {...props} />
+    // ),
+    // td: (props: any) => (
+    //     <td style={{ background: "pink" }} {...props} />
+    // ),
 }
 
 export default function Layout(props: { children }) {

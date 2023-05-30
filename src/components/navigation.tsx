@@ -10,7 +10,7 @@ export default function Navigation() {
   return (
     <>
       <ul>
-        {data?.allMdx?.edges.map(post => {
+        {data?.allMdx?.edges?.map(post => {
           return <li><Link to={`${post.node.frontmatter.slug}`}>{post.node.frontmatter.slug}</Link></li>
         })}
       </ul>
@@ -21,7 +21,7 @@ export default function Navigation() {
 // TODO move to queries.ts when supported
 const POST_INDEX_QUERY = graphql`
  query {
-     allMdx(sort: {fields: frontmatter___date, order: ASC}) {
+    allMdx(sort: {frontmatter: {date: ASC}}) {
          edges {
              node {
                  ...PostIndexFields

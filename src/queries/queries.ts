@@ -16,6 +16,7 @@ export const PostFragment = graphql`
     fragment PostFields on Mdx {
         id
         body
+        tableOfContents
         frontmatter {
             date(formatString: "Do MMMM YYYY")
             title
@@ -28,6 +29,7 @@ export const PostFragment = graphql`
 export interface MdxProps {
     id: string
     body: string
+    tableOfContents
     frontmatter: {
         slug: string
         title: string
