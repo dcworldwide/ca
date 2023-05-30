@@ -8,6 +8,7 @@ export const PostIndexFragment = graphql`
             title
             slug
             tags
+            rank
         }
     }
 `
@@ -22,6 +23,7 @@ export const PostFragment = graphql`
             title
             slug
             tags
+            rank
         }
     }
 `
@@ -35,6 +37,7 @@ export interface MdxProps {
         title: string
         date: string
         tags: string[]
+        rank: number
     }
 }
 

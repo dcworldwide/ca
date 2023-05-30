@@ -52,25 +52,29 @@ const StyledLink = styled(Link)`
 }
 `
 
-function renderItems(items, activeId) {
+function renderItems(items, activeId, style) {
     return (
-        <ol>
+        <ul style={style || { paddingInlineStart: 0 }}>
             {items.map((item) => {
+                const active = activeId === item.url.slice(1)
                 return (
                     <li key={item.url}>
                         <StyledLink
                             to={item.url}
                             style={{
-                                color: activeId === item.url.slice(1) ? "green" : "inherit",
+                                color: active ? "blue" : "inherit",
+                                fontWeight: active ? "600" : "inherit",
+                                textDecoration: active ? "underline" : "inherit",
+                                textUnderlineOffset: 6
                             }}
                         >
                             {item.title}
                         </StyledLink>
-                        {item.items && renderItems(item.items, activeId)}
+                        {item.items && renderItems(item.items, activeId, {})}
                     </li>
                 )
             })}
-        </ol>
+        </ul>
     )
 }
 

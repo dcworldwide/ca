@@ -1,8 +1,7 @@
+import { css, Global } from "@emotion/react"
 import styled from "@emotion/styled"
 import { MDXProvider } from "@mdx-js/react"
 import React from "react"
-import Header from "./header"
-import Navigation from "./navigation"
 
 const markdownRenderers = {
     // h1: (props: any) => (
@@ -24,13 +23,21 @@ const markdownRenderers = {
 
 
 const Root = styled("div")`
-    font-family: Inter;
-    -webkit-font-smoothing: antialiased;
-    font-feature-settings: "kern";
-    line-height: 1.5;
-    font-weight: 400;
 
-    media screen and (min-width: 1024px) {
+`
+
+const globalStyles = css`
+
+    body {
+        margin: 0;
+        font-family: Inter;
+        -webkit-font-smoothing: antialiased;
+        font-feature-settings: "kern";
+        line-height: 1.5;
+        font-weight: 400;
+    }
+
+    @media screen and (min-width: 1024px) {
         font-size: 1.125rem;
         line-height: 1.7777778;
     }
@@ -61,13 +68,16 @@ const Root = styled("div")`
         text-transform: uppercase;
         font-weight: bold;
     }
+
+    ul {
+        list-style-type: none;
+    }
 `
 
 export default function Layout(props: { children }) {
     return (
         <Root>
-            <Header />
-            <Navigation />
+            <Global styles={globalStyles} />
             <MDXProvider components={markdownRenderers}>{props.children}</MDXProvider>
         </Root>
     )

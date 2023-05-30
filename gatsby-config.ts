@@ -92,6 +92,7 @@ const config: GatsbyConfig = {
             //wrapESMPlugin(`remark-gfm`), TODO
           ],
           rehypePlugins: [
+            // @see https://nickymeuleman.netlify.app/blog/table-of-contents#add-css-ids-to-all-headings
             // @see https://paulie.dev/posts/2022/08/mdx-esm-rehype-packages/
             require('rehype-slug'),
             [require('rehype-autolink-headings'), { behavior: 'wrap' }]
