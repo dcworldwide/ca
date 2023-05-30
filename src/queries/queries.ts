@@ -38,6 +38,9 @@ export interface MdxProps {
         date: string
         tags: string[]
         rank: number
+        image: {
+            childImageSharp
+        }
     }
 }
 

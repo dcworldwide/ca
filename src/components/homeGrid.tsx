@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import { graphql, useStaticQuery } from "gatsby"
 import { Link } from "gatsby-link"
-import { StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import React from "react"
 import { PostsIndexQueryResult } from "../queries/queries"
 import VGroup from "./vgroup"
@@ -69,9 +69,15 @@ export default function PostGrid() {
     }}>
       <GridContainer>
         {data?.allMdx?.edges?.map(post => {
-          return <Card>
-            <Link to={`${post.node.frontmatter.slug}`}>
-              <StaticImage
+
+          let featuredImg = getImage(post.node.frontmatter.image?.childImageSharp?.gatsbyImageData)
+
+          console.log(post.node.frontmatter.image)
+
+          return <Card key={post.node.id}>
+            {/* <Link to={`${post.node.frontmatter.slug}`}> */}
+            <GatsbyImage image={featuredImg} alt="TODO" />
+            {/* <StaticImage
                 style={{
                   borderRadius: "18px 18px 0px 0px",
                   gridArea: "1/1",
@@ -86,15 +92,19 @@ export default function PostGrid() {
                 // Assisi, Perúgia, Itália by Bernardo Ferrari, via Unsplash
                 src={
                   // "https://images.unsplash.com/photo-1604975999044-188783d54fb3?w=2589"
-                  "../images/hero3.jpg"
+                  // "../images/hero3.jpg"
+                  post.node.frontmatter.image as any
                 }
                 formats={["auto", "webp", "avif"]}
-              />
+              /> */}
+            <Link to={`${post.node.frontmatter.slug}`}>
               <CardText>
+                {/* <div>{post.node.frontmatter.image}</div> */}
                 <CardTitle>{post.node.frontmatter.title}</CardTitle>
                 <div>{post.node.frontmatter.tags.join(", ")}</div>
               </CardText>
             </Link>
+            {/* </Link> */}
           </Card>
         })}
       </GridContainer>
@@ -108,9 +118,16 @@ const POST_INDEX_QUERY = graphql`
     allMdx(sort: {frontmatter: {rank: ASC}}) {
          edges {
              node {
-                 ...PostIndexFields
+                ...PostIndexFields
+                frontmatter {
+                    image {
+                      childImageSharp {
+                          gatsbyImageData(width: 800)
+                      }
+                    }
+                }
              }
          }
      }
  }
-`
+`  

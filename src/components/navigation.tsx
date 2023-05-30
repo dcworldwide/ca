@@ -22,7 +22,7 @@ export default function Navigation() {
 // TODO move to queries.ts when supported
 const POST_INDEX_QUERY = graphql`
  query {
-    allMdx(sort: {frontmatter: {date: ASC}}) {
+    allMdx(sort: {frontmatter: {rank: ASC}}) {
          edges {
              node {
                  ...PostIndexFields
