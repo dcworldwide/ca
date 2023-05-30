@@ -9,35 +9,33 @@ import VGroup from "./vgroup"
 
 const GridContainer = styled("div")`
   
-  /* Responsive Columns */
-  column-count: 1;
-  column-gap: 15px;
-  // max-width: 80%; /* Ensures the grid doesn't fill the entire width */
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 40px;
+  flex-grow: 1;
   
   @media (min-width: 768px) { /* Tablet and up */
-    column-count: 2;
+    gap: 20px;
   }
 
   @media (min-width: 1024px) { /* Large devices and up */
-    column-count: 3;
+    gap: 30px;
   }
 `
 
 const Card = styled("div")`
-  
-  // background-color: #f2f2f2;
-  margin-bottom: 15px;
-  // padding: 15px;
-  -webkit-column-break-inside: avoid;
+
   page-break-inside: avoid;
   break-inside: avoid;
   box-sizing: border-box;
   display: inline-block; 
-  width: 100%; 
+  max-width: 500px;
   
   border-radius: 18px; //12px 12px 8px 8px;
 
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.14);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 
   &:hover {
@@ -53,14 +51,14 @@ const CardText = styled("div")`
 `
 
 const CardTitle = styled("div")`
-  color: #CCC;
+  // color: #AAA;
   font-size: 1.5rem;
   font-weight: 700;
 `
 
 const CardDesc = styled("div")`
   font-size: 1rem;
-  margin: 8px 0px;
+  margin: 10px 0px 20px 0px;
 `
 
 const PageTag = styled("div")`
@@ -79,7 +77,7 @@ export default function PostGrid() {
   return (
     <VGroup style={{
       justifyContent: "center",
-      alignItems: "flex-start", /* Aligns grid to the top */
+      alignItems: "center", /* Aligns grid to the top */
       margin: "15px"
     }}>
       <GridContainer>
@@ -99,35 +97,7 @@ export default function PostGrid() {
                 // You can set a maximum height for the image, if you wish.
                 // maxHeight: 600,
               }}
-            // layout="fullWidth"
-            // You can optionally force an aspect ratio for the generated image
-            // aspectRatio={2 / 1}
-            // This is a presentational image, so the alt should be an empty string
-            // alt=""
-            // Assisi, Perúgia, Itália by Bernardo Ferrari, via Unsplash
-
-            // formats={["auto", "webp", "avif"]}
             />
-            {/* <StaticImage
-                style={{
-                  borderRadius: "18px 18px 0px 0px",
-                  gridArea: "1/1",
-                  // You can set a maximum height for the image, if you wish.
-                  // maxHeight: 600,
-                }}
-                layout="fullWidth"
-                // You can optionally force an aspect ratio for the generated image
-                aspectRatio={2 / 1}
-                // This is a presentational image, so the alt should be an empty string
-                alt=""
-                // Assisi, Perúgia, Itália by Bernardo Ferrari, via Unsplash
-                src={
-                  // "https://images.unsplash.com/photo-1604975999044-188783d54fb3?w=2589"
-                  // "../images/hero3.jpg"
-                  post.node.frontmatter.image as any
-                }
-                formats={["auto", "webp", "avif"]}
-              /> */}
             <Link to={`${post.node.frontmatter.slug}`}>
               <CardText>
                 {/* <div>{post.node.frontmatter.image}</div> */}

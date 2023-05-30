@@ -4,8 +4,10 @@ import React from "react"
 
 const HeroText = styled("div")`
 
+  font-family: "Crimson Pro";
   color: #FFF;
-  font-size: 2rem;
+  font-size: 2.5rem;
+  font-weight: 700;
   
   @media (min-width: 768px) { /* Tablet and up */
     font-size: 3rem;
@@ -24,7 +26,7 @@ export function Hero() {
         style={{
           gridArea: "1/1",
           // You can set a maximum height for the image, if you wish.
-          // maxHeight: 600,
+          maxHeight: 500,
         }}
         layout="fullWidth"
         // You can optionally force an aspect ratio for the generated image

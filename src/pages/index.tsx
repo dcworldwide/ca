@@ -1,3 +1,4 @@
+import { css } from "@emotion/react"
 import { StaticImage } from "gatsby-plugin-image"
 import React from "react"
 import Hero from "../components/hero"
@@ -11,6 +12,32 @@ export const Head = () => (
   <SEO />
 )
 
+const AvatarImage = css`
+  width: 200px;
+  height: 200p;
+  max-width: 200px;
+  max-height: 200p;
+  background: red;
+
+  @media (min-width: 768px) { /* Tablet and up */
+    width: 250px;
+    height: 250p;
+    max-width: 250px;
+    max-height: 250p;
+    background: pink;
+  }
+
+  @media (min-width: 1024px) { /* Large devices and up */
+    width: 250px;
+    height: 250p;
+    max-width: 250px;
+    max-height: 250p;
+    background: blue;
+  }
+`
+
+console.log(AvatarImage)
+
 function Avatar() {
   return <HGroup style={{
     // position: "absolute",
@@ -20,13 +47,16 @@ function Avatar() {
     marginLeft: "100px"
   }}>
     <StaticImage
+      imgClassName={AvatarImage.name}
+      // imgStyle={AvatarImage.styles}
       src={"../images/sunset.png"}
       alt="A dinosaur"
       placeholder="blurred"
       layout="fixed"
-      width={250}
       height={250}
+      width={250}
       style={{
+        ...AvatarImage,
         borderRadius: "50%",
         border: "5px solid white"
       }}
