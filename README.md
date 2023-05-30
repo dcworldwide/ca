@@ -80,19 +80,19 @@ Analytics
 Discuss at end of each page?
 
 
-DNS
+# Domain
+
+https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages
+changed cname: www webredir.vip.gandi.net. to dcworldwide.github.io.
 
 dig www.cebuanna.com +nostats +nocomments +nocmd
-;; global options: +cmd
-;WWW.cebuanna.COM.		IN	A
-WWW.cebuanna.COM.	10800	IN	CNAME	webredir.vip.gandi.net.
-webredir.vip.gandi.net.	10800	IN	A	217.70.184.50
-
 dig cebuanna.com +noall +answer -t A
-
-changed cname: www webredir.vip.gandi.net. to dcworldwide.github.io.
+dig cebuanna.com +noall +answer -t AAAA
 
 git add * && git commit -m "Fixes" && git push
 npm run deploy
 
 
+# SEO
+
+https://search.google.com/search-console?resource_id=sc-domain%3Acebuanna.com

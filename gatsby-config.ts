@@ -33,8 +33,14 @@ const config: GatsbyConfig = {
         preconnect: [`https://fonts.googleapis.com`, `https://fonts.gstatic.com`],
         web: [
           {
+            // @see https://fonts.google.com/specimen/Inter
             name: `Inter`,
             file: `https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap`,
+          },
+          {
+            // @see https://fonts.google.com/specimen/Crimson+Pro
+            name: `Crimson Pro`,
+            file: `https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&display=swap`,
           },
         ],
       },
