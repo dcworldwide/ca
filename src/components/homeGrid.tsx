@@ -88,17 +88,16 @@ export default function PostGrid() {
           console.log(post.node.frontmatter.image)
 
           return <Card key={post.node.id}>
-            {/* <Link to={`${post.node.frontmatter.slug}`}> */}
-            <GatsbyImage
-              image={featuredImg} alt="TODO"
-              style={{
-                borderRadius: "18px 18px 0px 0px",
-                gridArea: "1/1",
-                // You can set a maximum height for the image, if you wish.
-                // maxHeight: 600,
-              }}
-            />
             <Link to={`${post.node.frontmatter.slug}`}>
+              <GatsbyImage
+                image={featuredImg} alt="TODO"
+                style={{
+                  borderRadius: "18px 18px 0px 0px",
+                  gridArea: "1/1",
+                  // You can set a maximum height for the image, if you wish.
+                  // maxHeight: 600,
+                }}
+              />
               <CardText>
                 {/* <div>{post.node.frontmatter.image}</div> */}
                 <CardTitle>{post.node.frontmatter.title}</CardTitle>
@@ -109,7 +108,6 @@ export default function PostGrid() {
                 </HGroup>
               </CardText>
             </Link>
-            {/* </Link> */}
           </Card>
         })}
       </GridContainer>
