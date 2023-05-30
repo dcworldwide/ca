@@ -11,17 +11,13 @@ const GridContainer = styled("div")`
   /* Responsive Columns */
   column-count: 1;
   column-gap: 15px;
-  margin: 15px;
-
-  @media (min-width: 480px) {
+  max-width: 80%; /* Ensures the grid doesn't fill the entire width */
+  
+  @media (min-width: 768px) { /* Tablet and up */
     column-count: 2;
   }
 
-  @media (min-width: 768px) {
-    column-count: 2;
-  }
-
-  @media (min-width: 1024px) {
+  @media (min-width: 1024px) { /* Large devices and up */
     column-count: 3;
   }
 `
@@ -29,16 +25,15 @@ const GridContainer = styled("div")`
 const Card = styled("div")`
   
   // background-color: #f2f2f2;
-  // margin: 15px auto; /* Centers the divs horizontally */
-    
   margin-bottom: 15px;
   // padding: 15px;
   -webkit-column-break-inside: avoid;
   page-break-inside: avoid;
   break-inside: avoid;
   box-sizing: border-box;
-  display: inline-block; /* Makes sure the boxes can break line */
-  width: 100%; /* Makes sure each box takes up a full column width */
+  display: inline-block; 
+  width: 100%; 
+  
   border-radius: 18px; //12px 12px 8px 8px;
 
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -67,7 +62,11 @@ export default function PostGrid() {
   const data: PostsIndexQueryResult = useStaticQuery(POST_INDEX_QUERY)
 
   return (
-    <VGroup style={{ justifyContent: "center" }}>
+    <VGroup style={{
+      justifyContent: "center",
+      alignItems: "flex-start", /* Aligns grid to the top */
+      margin: "15px"
+    }}>
       <GridContainer>
         {data?.allMdx?.edges?.map(post => {
           return <Card>

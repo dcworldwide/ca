@@ -1,5 +1,20 @@
+import styled from "@emotion/styled"
 import { StaticImage } from "gatsby-plugin-image"
 import React from "react"
+
+const HeroText = styled("div")`
+
+  color: #FFF;
+  font-size: 2rem;
+  
+  @media (min-width: 768px) { /* Tablet and up */
+    font-size: 3rem;
+  }
+
+  @media (min-width: 1024px) { /* Large devices and up */
+    font-size: 3.5rem;
+  }
+`
 
 export function Hero() {
   return (
@@ -34,10 +49,7 @@ export function Hero() {
         }}
       >
         {/* Any content here will be centered in the component */}
-        <h1 style={{
-          color: "#FFF",
-          fontSize: "4.5rem",
-        }}>Your guide to the Philippines</h1>
+        <HeroText>Your guide to the Philippines</HeroText>
       </div>
     </div>
   )
