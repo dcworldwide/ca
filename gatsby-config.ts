@@ -11,7 +11,6 @@ import type { GatsbyConfig } from "gatsby"
 //   }
 
 const config: GatsbyConfig = {
-  pathPrefix: "/web",
   siteMetadata: {
     title: `Cebuanna`,
     siteUrl: `https://www.cebuanna.com`

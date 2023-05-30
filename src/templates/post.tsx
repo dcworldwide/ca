@@ -1,3 +1,4 @@
+import { Link } from "@reach/router"
 import { graphql } from "gatsby"
 import React from "react"
 
@@ -16,7 +17,7 @@ export function Page({ data, children }: any) {
     <>
       <ul>
         {data.allMdx.edges.map(post => {
-          return <li><a href={`${post.node.frontmatter.slug}`}>{post.node.frontmatter.title}</a></li>
+          return <li><Link to={`${post.node.frontmatter.slug}`}>{post.node.frontmatter.title}</Link></li>
         })}
       </ul>
       <h1>{data.mdx.frontmatter.title}</h1>
