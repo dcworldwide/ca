@@ -4,6 +4,7 @@ import { Link } from "gatsby-link"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import React from "react"
 import { PostsIndexQueryResult } from "../queries/queries"
+import HGroup from "./hgroup"
 import VGroup from "./vgroup"
 
 const GridContainer = styled("div")`
@@ -11,7 +12,7 @@ const GridContainer = styled("div")`
   /* Responsive Columns */
   column-count: 1;
   column-gap: 15px;
-  max-width: 80%; /* Ensures the grid doesn't fill the entire width */
+  // max-width: 80%; /* Ensures the grid doesn't fill the entire width */
   
   @media (min-width: 768px) { /* Tablet and up */
     column-count: 2;
@@ -57,6 +58,20 @@ const CardTitle = styled("div")`
   font-weight: 700;
 `
 
+const CardDesc = styled("div")`
+  font-size: 1rem;
+  margin: 8px 0px;
+`
+
+const PageTag = styled("div")`
+  background: #AAA;
+  padding: 4px 6px;
+  color: #FFF;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+`
+
 export default function PostGrid() {
 
   const data: PostsIndexQueryResult = useStaticQuery(POST_INDEX_QUERY)
@@ -76,7 +91,23 @@ export default function PostGrid() {
 
           return <Card key={post.node.id}>
             {/* <Link to={`${post.node.frontmatter.slug}`}> */}
-            <GatsbyImage image={featuredImg} alt="TODO" />
+            <GatsbyImage
+              image={featuredImg} alt="TODO"
+              style={{
+                borderRadius: "18px 18px 0px 0px",
+                gridArea: "1/1",
+                // You can set a maximum height for the image, if you wish.
+                // maxHeight: 600,
+              }}
+            // layout="fullWidth"
+            // You can optionally force an aspect ratio for the generated image
+            // aspectRatio={2 / 1}
+            // This is a presentational image, so the alt should be an empty string
+            // alt=""
+            // Assisi, Perúgia, Itália by Bernardo Ferrari, via Unsplash
+
+            // formats={["auto", "webp", "avif"]}
+            />
             {/* <StaticImage
                 style={{
                   borderRadius: "18px 18px 0px 0px",
@@ -101,7 +132,11 @@ export default function PostGrid() {
               <CardText>
                 {/* <div>{post.node.frontmatter.image}</div> */}
                 <CardTitle>{post.node.frontmatter.title}</CardTitle>
-                <div>{post.node.frontmatter.tags.join(", ")}</div>
+                <CardDesc>{post.node.frontmatter.description}</CardDesc>
+                <HGroup style={{ gap: 4 }}>{post.node.frontmatter.tags.map(x => {
+                  return <PageTag>{x}</PageTag>
+                })}
+                </HGroup>
               </CardText>
             </Link>
             {/* </Link> */}

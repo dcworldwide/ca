@@ -37,6 +37,11 @@ const globalStyles = css`
         font-weight: 400;
     }
 
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
     @media screen and (min-width: 1024px) {
         font-size: 1.125rem;
         line-height: 1.7777778;
