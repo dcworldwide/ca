@@ -1,5 +1,5 @@
-import { Link } from "@reach/router"
 import { graphql, useStaticQuery } from "gatsby"
+import { Link } from "gatsby-link"
 import React from "react"
 import { PostsIndexQueryResult } from "../queries/queries"
 
@@ -10,8 +10,9 @@ export default function Navigation() {
   return (
     <>
       <ul>
+        <li><Link to="/">Home</Link></li>
         {data?.allMdx?.edges?.map(post => {
-          return <li><Link to={`${post.node.frontmatter.slug}`}>{post.node.frontmatter.slug}</Link></li>
+          return <li><Link to={`${post.node.frontmatter.slug}`}>{post.node.frontmatter.title}</Link></li>
         })}
       </ul>
     </>

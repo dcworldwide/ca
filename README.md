@@ -87,7 +87,8 @@ dig www.cebuanna.com +nostats +nocomments +nocmd
 ;WWW.cebuanna.COM.		IN	A
 WWW.cebuanna.COM.	10800	IN	CNAME	webredir.vip.gandi.net.
 webredir.vip.gandi.net.	10800	IN	A	217.70.184.50
-danijel@Danijels-MacBook-Pro ~ % 
+
+dig cebuanna.com +noall +answer -t A
 
 changed cname: www webredir.vip.gandi.net. to dcworldwide.github.io.
 
