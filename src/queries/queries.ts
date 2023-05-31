@@ -41,17 +41,28 @@ export interface MdxProps {
         tags: string[]
         rank: number
         description: string
+    }
+}
+
+export interface MxdFrontmatterImageBytes {
+    frontmatter: {
         image: {
-            childImageSharp
+            childImageSharp: {
+                gatsbyImageData
+            }
         }
     }
+}
+
+export interface MxdFrontmatterImagePath {
+    image: string
 }
 
 
 export interface PostsIndexQueryResult {
     allMdx: {
         edges: {
-            node: Omit<MdxProps, "body">
+            node: Omit<MdxProps, "body"> & MxdFrontmatterImageBytes
         }[]
     }
 }

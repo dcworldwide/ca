@@ -96,3 +96,4 @@ npm run deploy
 # SEO
 
 https://search.google.com/search-console?resource_id=sc-domain%3Acebuanna.com
+https://analytics.google.com/analytics/web/#/p378950570/reports/intelligenthome
