@@ -34,19 +34,25 @@ export function Page(props: { data: DataProps, children }) {
   const isTabletOrLarger = useMediaQuery(MEDIA_QUERY_TABLET)
 
   return (
-    <Layout>
+    <Layout style={{ background: "#eee" }}>
       <Hero2 imageBytes={data.mdx.frontmatter.image.childImageSharp.gatsbyImageData}>
         {/*  image="hero3" */}
         <HeroText>{data.mdx.frontmatter.title}</HeroText>
       </Hero2>
-      <div style={{ margin: 20 }}>
+      <div style={{
+        position: "relative",
+        margin: "-80px 20px 0px 20px",
+        background: "#fff",
+        padding: isTabletOrLarger ? "30px" : "30px",
+        borderRadius: "20px 20px 0px 0px"
+      }}>
         <Link to="/">Home</Link>
         {isTabletOrLarger
           ? <HGroup>
-            <div style={{ width: "80%", marginRight: 10 }}>
+            <div style={{ width: "70%", marginRight: 20 }}>
               {children}
             </div>
-            <div style={{ width: "20%" }}>
+            <div style={{ width: "30%" }}>
               <div style={{ position: "sticky", top: 0 }}>
                 <TableOfContents items={data?.mdx?.tableOfContents?.items || []} />
               </div>

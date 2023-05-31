@@ -78,11 +78,47 @@ const globalStyles = css`
     ul {
         list-style-type: none;
     }
+
+    table {
+        border-collapse: collapse;
+        text-indent: initial;
+        border-spacing: 2px;
+        width: 100%;
+    }
+
+    thead tr {
+        border-top: none;
+        border-bottom: none !important;
+    }
+
+    thead th {
+        border-top: none;
+        border-bottom: none !important;
+    }
+
+    th {
+        padding: 0.75rem;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+        text-align: left;
+    }
+
+    td {
+        padding: 0.75rem;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+    }
+
+    tbody {
+        display: table-row-group;
+        vertical-align: middle;
+        border-color: inherit;
+    }
 `
 
-export default function Layout(props: { children }) {
+export default function Layout(props: { children, style?}) {
     return (
-        <Root>
+        <Root style={props.style}>
             <Global styles={globalStyles} />
             <ViewportHelper />
             <MDXProvider components={markdownRenderers}>{props.children}</MDXProvider>
