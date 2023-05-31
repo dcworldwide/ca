@@ -7,7 +7,7 @@ export const HeroText = styled("div")`
 
   font-family: "Crimson Pro";
   color: #FFF;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   
   @media (min-width: 768px) { /* Tablet and up */
