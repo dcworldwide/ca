@@ -5,21 +5,11 @@ import React from "react"
 import { ViewportHelper } from "./debug"
 
 const markdownRenderers = {
-    // h1: (props: any) => (
-    //     <h1 style={{ fontSize: "60px", fontWeight: "bold" }} {...props} />
-    // ),
-    // h2: (props: any) => (
-    //     <h2 style={{ fontSize: "60px", fontWeight: "bold" }} {...props} />
-    // ),
-    // table: (props: any) => (
-    //     <table style={{ background: "pink" }} {...props} />
-    // ),
-    // tr: (props: any) => (
-    //     <tr style={{ background: "pink" }} {...props} />
-    // ),
-    // td: (props: any) => (
-    //     <td style={{ background: "pink" }} {...props} />
-    // ),
+    table: (props: any) => (
+        <div style={{ width: "100%", overflowX: "auto" }} {...props}>
+            {props.children}
+        </div>
+    ),
 }
 
 

@@ -49,11 +49,11 @@ export function Page(props: { data: DataProps, children }) {
         <Link to="/">Home</Link>
         {isTabletOrLarger
           ? <HGroup>
-            <div style={{ width: "70%", marginRight: 20 }}>
+            <div style={{ width: "70%", marginRight: 30 }}>
               {children}
             </div>
             <div style={{ width: "30%" }}>
-              <div style={{ position: "sticky", top: 0 }}>
+              <div style={{ position: "sticky", top: 30 }}>
                 <TableOfContents items={data?.mdx?.tableOfContents?.items || []} />
               </div>
             </div>
