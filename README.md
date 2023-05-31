@@ -54,6 +54,15 @@ https://dribbble.com/shots/19061913-Travel-Mobile-App
 
 Prompts
 
+## Tours
+
+Create a table that summarises the most popular day tours in Boracay.
+
+Include columns for tour name, tour company, duration, highlights, price range
+Include a URL column for tour booking/information website
+Make all prices in USD
+Make the table in markdown text format only
+
 ## Weather
 Create a table that shows the weather of Boracay, Phillipines for every month of the year.
 
