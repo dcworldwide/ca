@@ -2,6 +2,7 @@ import { css, Global } from "@emotion/react"
 import styled from "@emotion/styled"
 import { MDXProvider } from "@mdx-js/react"
 import React from "react"
+import { ViewportHelper } from "./debug"
 
 const markdownRenderers = {
     // h1: (props: any) => (
@@ -83,6 +84,7 @@ export default function Layout(props: { children }) {
     return (
         <Root>
             <Global styles={globalStyles} />
+            <ViewportHelper />
             <MDXProvider components={markdownRenderers}>{props.children}</MDXProvider>
         </Root>
     )

@@ -2,7 +2,9 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import React from 'react'
 
-export const ConstrainedImageComponent = ({ imageName, altText, style }) => {
+export const ConstrainedImageComponent = (props: { imageName, altText?, style?}) => {
+
+    const { imageName, altText, style } = props
 
     // For responsive images, you'll want to use a layout value of CONSTRAINED or FULL_WIDTH instead of FIXED. 
     // The CONSTRAINED layout will maintain the image’s aspect ratio and resize the image to fit the container while 
