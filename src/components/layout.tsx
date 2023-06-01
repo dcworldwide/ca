@@ -71,7 +71,7 @@ const globalStyles = css`
     }
 
     ul {
-        list-style-type: none;
+        // list-style-type: none;
     }
 
     table {

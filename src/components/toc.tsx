@@ -1,8 +1,8 @@
 import styled from "@emotion/styled"
 import { default as React, useEffect, useState } from "react"
-import { Link } from "./link"
+import { Link, LinkColour } from "./link"
 
-function getIds(items) {
+function getIds(items: any[]) {
     return items.reduce((acc, item) => {
         if (item.url) {
             // url has a # as first character, remove it to get the raw CSS-id
@@ -15,8 +15,8 @@ function getIds(items) {
     }, [])
 }
 
-function useActiveId(itemIds) {
-    const [activeId, setActiveId] = useState(`test`)
+function useActiveId(itemIds: any[]) {
+    const [activeId, setActiveId] = useState<string>(`test`)
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
@@ -52,17 +52,17 @@ const StyledLink = styled(Link)`
 }
 `
 
-function renderItems(items, activeId, style?) {
+function renderItems(items: any[], activeId: string, style?: React.CSSProperties) {
     return (
-        <ul style={style || { paddingInlineStart: 0 }}>
+        <ul style={style || { paddingInlineStart: 0, listStyleType: "none" }}>
             {items.map((item) => {
                 const active = activeId === item.url.slice(1)
                 return (
-                    <li key={item.url}>
+                    <li key={item.url} style={{ margin: "6px 0px" }}>
                         <StyledLink
                             to={item.url}
                             style={{
-                                color: active ? "cadetblue" : "inherit",
+                                color: active ? LinkColour : "inherit",
                                 fontWeight: active ? "600" : "inherit",
                                 textDecoration: active ? "underline" : "inherit",
                                 textUnderlineOffset: 6
@@ -70,7 +70,7 @@ function renderItems(items, activeId, style?) {
                         >
                             {item.title}
                         </StyledLink>
-                        {item.items && renderItems(item.items, activeId, {})}
+                        {item.items && renderItems(item.items, activeId, { listStyleType: "none" })}
                     </li>
                 )
             })}

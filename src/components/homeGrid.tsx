@@ -31,7 +31,7 @@ const Card = styled("div")`
   break-inside: avoid;
   box-sizing: border-box;
   display: inline-block; 
-  max-width: 500px;
+  max-width: 400px;
   
   border-radius: 18px; //12px 12px 8px 8px;
 

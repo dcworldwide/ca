@@ -98,9 +98,9 @@ dig www.cebuanna.com +nostats +nocomments +nocmd
 dig cebuanna.com +noall +answer -t A
 dig cebuanna.com +noall +answer -t AAAA
 
-git add * && git commit -m "Fixes" && git push
+git add *
+git commit -m "Fixes" && git push
 npm run deploy
-
 
 # SEO
 
@@ -113,3 +113,4 @@ https://analytics.google.com/analytics/web/#/p378950570/reports/intelligenthome
 https:\/\/[\w\.]+
 <OuterLink>$0</OuterLink>
 content/*
+

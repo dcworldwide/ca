@@ -4,6 +4,8 @@ import { OutboundLink } from "gatsby-plugin-google-gtag"
 import React from "react"
 import { stripHttp } from "../utils/string"
 
+export const LinkColour = "cadetblue"
+
 const UntyledLocalLink = styled(InternalLink)`
     color: inherit;
 `
