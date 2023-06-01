@@ -1,10 +1,10 @@
 import styled from "@emotion/styled"
 import { graphql, useStaticQuery } from "gatsby"
-import { Link } from "gatsby-link"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import React from "react"
 import { PostsIndexQueryResult } from "../queries/queries"
 import HGroup from "./hgroup"
+import { UnstyledLink } from "./link"
 import VGroup from "./vgroup"
 
 const GridContainer = styled("div")`
@@ -88,7 +88,7 @@ export default function PostGrid() {
           console.log(post.node.frontmatter.image)
 
           return <Card key={post.node.id}>
-            <Link to={`${post.node.frontmatter.slug}`}>
+            <UnstyledLink to={`${post.node.frontmatter.slug}`}>
               <GatsbyImage
                 image={featuredImg} alt="TODO"
                 style={{
@@ -107,7 +107,7 @@ export default function PostGrid() {
                 })}
                 </HGroup>
               </CardText>
-            </Link>
+            </UnstyledLink>
           </Card>
         })}
       </GridContainer>

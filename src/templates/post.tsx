@@ -1,9 +1,10 @@
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import React from "react"
 import { Hero2, HeroText } from "../components/hero"
 import HGroup from "../components/hgroup"
 import Layout from "../components/layout"
-import TableOfContents from "../components/toc"
+import { Link } from "../components/link"
+import Toc from "../components/toc"
 import VGroup from "../components/vgroup"
 import useMediaQuery, { MEDIA_QUERY_TABLET } from "../hooks/useMediaQuery"
 import { MdxProps, MxdFrontmatterImageBytes } from "../queries/queries"
@@ -46,7 +47,7 @@ export function Page(props: { data: DataProps, children }) {
         padding: isTabletOrLarger ? "30px" : "30px",
         borderRadius: "20px 20px 0px 0px"
       }}>
-        <Link to="/">Home</Link>
+        <div><Link to="/">Home</Link> / {data.mdx.frontmatter.title}</div>
         {isTabletOrLarger
           ? <HGroup>
             <div style={{ width: "70%", marginRight: 30 }}>
@@ -54,12 +55,12 @@ export function Page(props: { data: DataProps, children }) {
             </div>
             <div style={{ width: "30%" }}>
               <div style={{ position: "sticky", top: 30 }}>
-                <TableOfContents items={data?.mdx?.tableOfContents?.items || []} />
+                <Toc items={data?.mdx?.tableOfContents?.items || []} />
               </div>
             </div>
           </HGroup>
           : <VGroup>
-            <TableOfContents items={data?.mdx?.tableOfContents?.items || []} />
+            <Toc items={data?.mdx?.tableOfContents?.items || []} />
             {children}
           </VGroup>
         }

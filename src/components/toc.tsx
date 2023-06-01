@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
-import { Link } from "gatsby-link"
 import { default as React, useEffect, useState } from "react"
+import { Link } from "./link"
 
 function getIds(items) {
     return items.reduce((acc, item) => {
@@ -52,7 +52,7 @@ const StyledLink = styled(Link)`
 }
 `
 
-function renderItems(items, activeId, style) {
+function renderItems(items, activeId, style?) {
     return (
         <ul style={style || { paddingInlineStart: 0 }}>
             {items.map((item) => {
@@ -62,7 +62,7 @@ function renderItems(items, activeId, style) {
                         <StyledLink
                             to={item.url}
                             style={{
-                                color: active ? "blue" : "inherit",
+                                color: active ? "cadetblue" : "inherit",
                                 fontWeight: active ? "600" : "inherit",
                                 textDecoration: active ? "underline" : "inherit",
                                 textUnderlineOffset: 6
@@ -78,7 +78,7 @@ function renderItems(items, activeId, style) {
     )
 }
 
-function TableOfContents(props) {
+function Toc(props) {
     const idList = getIds(props.items)
     const activeId = useActiveId(idList)
     return (
@@ -89,4 +89,4 @@ function TableOfContents(props) {
     )
 }
 
-export default TableOfContents
+export default Toc

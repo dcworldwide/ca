@@ -4,6 +4,7 @@ import { MDXProvider } from "@mdx-js/react"
 import React from "react"
 import CurrencySelector, { Currency } from "./currencySelector"
 import { ViewportHelper } from "./debug"
+import { Link, RemoteLink } from "./link"
 
 const markdownRenderers = {
     table: (props: any) => (
@@ -11,6 +12,8 @@ const markdownRenderers = {
             {props.children}
         </div>
     ),
+    a: Link,
+    OutboundLink: RemoteLink,
     Currency: Currency,
 }
 

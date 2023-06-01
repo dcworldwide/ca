@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from "gatsby"
-import { Link } from "gatsby-link"
 import React from "react"
 import { PostsIndexQueryResult } from "../queries/queries"
+import { Link } from "./link"
 
 export default function Navigation() {
 
