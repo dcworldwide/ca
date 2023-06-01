@@ -12,6 +12,10 @@ export function stripHtml(x: string) {
     return x.replace(/(<([^>]+)>)/ig, "")
 }
 
+export function stripHttp(x: string) {
+    return x?.replace("https://", "")?.replace("http://", "").replace("www.", "")
+}
+
 export function hasValue(x: string) {
     return x != undefined && x != null && x.length > 0 && x.trim().length > 0
 }
