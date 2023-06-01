@@ -187,9 +187,17 @@ function useStorageState<S>(
 }
 
 export function useLocalStorageState<S>(k: string, initialState?: S | (() => S)) {
-    return useStorageState(localStorage, k, initialState)
+    if (typeof window !== 'undefined') {
+        return useStorageState(localStorage, k, initialState)
+    } else {
+        return [initialState, (x) => x, () => null]
+    }
 }
 
 export function useSessionStorageState<S>(k: string, initialState?: S | (() => S)) {
-    return useStorageState(sessionStorage, k, initialState)
+    if (typeof window !== 'undefined') {
+        return useStorageState(sessionStorage, k, initialState)
+    } else {
+        return [initialState, (x) => x, () => null]
+    }
 }
