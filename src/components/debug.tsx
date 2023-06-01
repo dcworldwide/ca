@@ -1,7 +1,6 @@
 import styled from "@emotion/styled"
 
 export const ViewportHelper = styled("div")`
-
     position: fixed;
     bottom: 0px;
     left: 0px;
@@ -10,10 +9,10 @@ export const ViewportHelper = styled("div")`
     background: red;
 
     @media (min-width: 768px) { /* Tablet and up */
-    background: pink;
+        background: pink;
     }
 
     @media (min-width: 1024px) { /* Large devices and up */
-    background: blue;
+        background: blue;
     }
 `

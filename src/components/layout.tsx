@@ -2,6 +2,7 @@ import { css, Global } from "@emotion/react"
 import styled from "@emotion/styled"
 import { MDXProvider } from "@mdx-js/react"
 import React from "react"
+import CurrencySelector, { Currency } from "./currencySelector"
 import { ViewportHelper } from "./debug"
 
 const markdownRenderers = {
@@ -10,6 +11,7 @@ const markdownRenderers = {
             {props.children}
         </div>
     ),
+    Currency: Currency,
 }
 
 
@@ -111,6 +113,7 @@ export default function Layout(props: { children, style?}) {
         <Root style={props.style}>
             <Global styles={globalStyles} />
             <ViewportHelper />
+            <CurrencySelector />
             <MDXProvider components={markdownRenderers}>{props.children}</MDXProvider>
         </Root>
     )

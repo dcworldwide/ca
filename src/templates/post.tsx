@@ -41,7 +41,7 @@ export function Page(props: { data: DataProps, children }) {
       </Hero2>
       <div style={{
         position: "relative",
-        margin: "-80px 20px 0px 20px",
+        margin: "-60px 20px 0px 20px",
         background: "#fff",
         padding: isTabletOrLarger ? "30px" : "30px",
         borderRadius: "20px 20px 0px 0px"
